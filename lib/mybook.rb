@@ -1,0 +1,2 @@
+module Mybook
+end
