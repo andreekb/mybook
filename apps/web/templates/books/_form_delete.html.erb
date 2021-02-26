@@ -1,0 +1,31 @@
+<div class="column is-8 is-offset-2">
+    <%= form_for form, class: 'form-horizontal' do
+      div class: "field" do
+        label :"title", class: "label"
+        div class: "control" do
+          text_field :title, class: "input is-medium", disabled: "disabled"
+        end
+      end
+
+
+      div class: "field" do
+        label :"author", class: "label"
+        div class: "control" do
+          text_field :author, class: "input is-medium", disabled: "disabled"
+        end
+      end
+
+
+      div class: "field" do
+        label :"message", class: "label"
+        div class: "control" do
+          text_area :message, class: "textarea is-medium", disabled: "disabled"
+        end
+      end
+
+
+      div class: "control" do
+        submit submit_label, class: "button is-link is-fullwidth has-text-weight-medium is-medium"
+      end
+    end %>
+</div>

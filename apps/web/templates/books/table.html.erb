@@ -1,0 +1,69 @@
+<% if books.any? %>
+    <section class="hero is-light is-main">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title has-text-centered">
+        <span class="icon">
+          <i class="mdi mdi-bulma"></i>
+        </span>
+                    Bulma responsive tables
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="b-table">
+                <div class="table-wrapper has-mobile-cards">
+                    <table class="table is-fullwidth is-striped is-hoverable">
+                        <thead>
+
+                        <tr>
+                            <th>Data</th>
+                            <th>Title</th>
+                            <th>Author</th>
+
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% books.each do |book| %>
+
+                            <tr id=<%= book.id %>-form-row>
+                                <td data-label="Name"><%= book.data_created %></td>
+                                <td data-label="Company"><%= book.title %></td>
+                                <td data-label="City"><%= book.author %></td>
+
+                                <td class="is-actions-cell">
+                                    <div class="buttons is-right">
+
+                                        <%= link_to 'Edit', routes.edit_book_path(book.id), class: 'button is-small is-link' %>
+                                        <%= link_to 'Delete form', routes.show_book_path(book.id), class: 'button is-small is-danger' %>
+
+
+                                        <%= v_form = "#{book.id}-#{book.id}"
+                                            form_for(v_form, routes.destroy_book_path(book.id), method: :delete) do
+                                              submit "Delete", class: "button is-small is-danger"
+                                            end
+                                        %>
+
+
+                                        <%= form_for(book.id, routes.destroy_book_path(book.id), remote: true, method: :delete) do
+                                          submit "Delete ajax", class: "button is-small is-danger"
+                                        end
+                                        %>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                        <% end %>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+<% end %>

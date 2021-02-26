@@ -1,0 +1,31 @@
+<section class="hero ">
+    <div class="hero-body">
+        <div class="container">
+            <% if books.any? %>
+                <% books.each do |book| %>
+                    <section class="section">
+                        <div class="columns">
+                            <div class="column is-8 is-offset-2">
+                                <div class="content is-medium">
+
+                                    <article class="message is-info">
+                                        <div class="message-header">
+                                            <p><%= book.title %></p>
+                                        </div>
+                                        <div class="message-body">
+                                            <%= book.message %>
+                                        </div>
+                                    </article>
+
+                                    <p><%= book.author %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="is-divider"></div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</section>

@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Web</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Books</title>
     <%= favicon %>
-  </head>
-  <body>
-    <%= yield %>
-  </body>
+    <%= stylesheet 'bulma.min' %>
+    <%= stylesheet 'bulma-divider.min' %>
+    <%= stylesheet 'main.min' %>
+    <%= csrf_meta_tags %>
+    <style>
+        #navbar-toggle:checked + .navbar-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+
+<nav id="navbar" class="navbar is-info" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">Home</a>
+        <label class="navbar-burger burger" for="navbar-toggle" role="button" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </label>
+    </div>
+    <input id="navbar-toggle" type="checkbox" class="is-hidden"/>
+    <div class="navbar-menu">
+        <div class="navbar-end">
+
+            <a class="navbar-item" href="/books/table">Book Table</a>
+            <a class="navbar-item" href="/books">Book List</a>
+            <a class="navbar-item" href="/books/new">Book New</a>
+
+        </div>
+    </div>
+</nav>
+
+<%= yield %>
+
+<%= javascript "hanami-ujs" %>
+<%= javascript "main" %>
+</body>
 </html>
